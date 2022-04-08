@@ -27,6 +27,7 @@ Maggie Slein
 Twitter: @sleinma
 Github: @mslein
 
+
 Jenn Sunday Twitter: @jennsunday Github: @jennsunday website:http://jennsunday.weebly.com
 
 Bryn Wiley
@@ -37,3 +38,8 @@ Victoria Marie Glynn
 Website: https://victoriamglynn.weebly.com/
 Github: @vmglynn
 Science communication Instagram: https://www.instagram.com/vmg_inpanama/
+
+
+Amy Forsythe
+Twitter: @amybforsythe
+Github: @AmyForsythe
