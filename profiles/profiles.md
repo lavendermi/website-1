@@ -28,4 +28,6 @@ Maggie Slein
 Twitter: @sleinma
 Github: @mslein
 
-Jenn Sunday Twitter: @jennsunday Github: @jennsunday website:http://jennsunday.weebly.com
+Amy Forsythe
+Twitter: @amybforsythe
+Github: @AmyForsythe
