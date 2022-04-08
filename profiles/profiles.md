@@ -43,3 +43,7 @@ Science communication Instagram: https://www.instagram.com/vmg_inpanama/
 Amy Forsythe
 Twitter: @amybforsythe
 Github: @AmyForsythe
+
+Kirsten Michelle Palmier
+website: https://www.urimss.ca/
+ResearchGate: https://www.researchgate.net/profile/Kirsten-Palmier
