@@ -16,3 +16,4 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+We are a group of early career researchers from Canada creating a series of curated datasets with accompanying R-based tutorials that can be used to teach/illustrate ecological and evolution concepts, based on Canadian-generated data sources.
