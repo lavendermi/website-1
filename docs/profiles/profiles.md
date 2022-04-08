@@ -14,7 +14,6 @@ Github: @quantitative-ecologist
 
 
 
-
 Egor Katkov
 
 Twitter: https://twitter.com/egorkatkov1
@@ -27,3 +26,20 @@ ResearchGate: https://www.researchgate.net/profile/Egor-Katkov
 Maggie Slein 
 Twitter: @sleinma
 Github: @mslein
+
+
+Jenn Sunday Twitter: @jennsunday Github: @jennsunday website:http://jennsunday.weebly.com
+
+Bryn Wiley
+GitHub:https://github.com/BrynWiley
+
+
+Victoria Marie Glynn
+Website: https://victoriamglynn.weebly.com/
+Github: @vmglynn
+Science communication Instagram: https://www.instagram.com/vmg_inpanama/
+
+
+Amy Forsythe
+Twitter: @amybforsythe
+Github: @AmyForsythe

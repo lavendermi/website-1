@@ -13,6 +13,8 @@ navbar:
           href: lessons/2022-04-07-codyn-tutorial/codyn_tutorial.html
         - text: "Chronic Wasting Disease"
           href: lessons/2022-04-07-chronic-wasting-disease-tutorial/index.html
+        - text: "Anticosti Historical Data"
+          href: lessons/2022-04-07-anticosti-historical-data-tutorial/index.html
     - text: "About"
       href: about.html
 collections:

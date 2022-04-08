@@ -1,5 +1,26 @@
 [
   {
+    "path": "lessons/2022-04-07-anticosti-historical-data-tutorial/",
+    "title": "Anticosti Historical Data Tutorial",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Victoria Marie Glynn",
+        "url": {}
+      },
+      {
+        "name": "Maxime Fraser Franco",
+        "url": {}
+      }
+    ],
+    "date": "2022-04-07",
+    "categories": [],
+    "contents": "\n\n\n\n\n\n\n",
+    "preview": {},
+    "last_modified": "2022-04-08T23:40:46+00:00",
+    "input_file": {}
+  },
+  {
     "path": "lessons/2022-04-07-chronic-wasting-disease-tutorial/",
     "title": "Chronic Wasting Disease Tutorial",
     "description": "A short description of the post.",
