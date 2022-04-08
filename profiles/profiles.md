@@ -32,3 +32,7 @@ Jenn Sunday Twitter: @jennsunday Github: @jennsunday website:http://jennsunday.w
 
 Bryn Wiley
 GitHub:https://github.com/BrynWiley
+
+Kirsten Michelle Palmier
+website: https://www.urimss.ca
+ResearchGate: https://www.researchgate.net/profile/Kirsten-Palmier
