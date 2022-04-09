@@ -2,6 +2,7 @@ name: "."
 title: "Living Data Tutorials"
 description: |
   Living Data Tutorials
+theme: theme.css
 output_dir: "docs"
 navbar:
   right:
