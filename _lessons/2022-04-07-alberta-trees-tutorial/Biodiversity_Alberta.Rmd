@@ -4,7 +4,7 @@ description: |
   A short description of the post.
 author:
   - name: Jhoan Chavez
-    affiliation: NRES
+    affiliation: University of Northern British Columbia
   - Zihaohan Sang
     affiliation: University of Alberta
   - Rolando Trejo Pérez
@@ -30,7 +30,7 @@ Another key concept in biology is Diversity. If you have wondered what is the co
 
 
 
-### OBJECTIFS
+### OBJECTIVES
 
 At the end of this tutorial you will be able to explore patterns of rings over time. Perhaps, something hidden is there! You will also to be able to understand why biology and statistics do a nice match. You will be able to have the basis of linear regression applied to species richness in function of at least of a couple of independent variables. 
 
@@ -64,14 +64,12 @@ The experimental design consisted of plots of 50x50 m subdivided into 50 5x5 m q
 
 ## TREE RING ANALYSIS OVER TIME
 
-Let's plot some graphics. We can plot the average ring width (mm) in axe y in function of time (year) in axe x (see red line). But, we can also plot the average ring width (mm) in axe y in function of time (year) in axe x, simultaneously considering the stands (see gray lines). Do you have some ideas about what is happening whit these trends?
+Let's plot some graphics. We can plot the average ring width (mm) in axe y in function of time (year) in axe x (see red line). But, we can also plot the average ring width (mm) in axe y in function of time (year) in axe x, simultaneously considering the stands (see gray lines). Do you have some ideas about what these trends might be telling us?
 
 ```{r, message=FALSE, echo=FALSE}
 embed_url("https://www.youtube.com/watch?v=xmZO7aRgcW4")%>%
 use_align("center")
 ```
-
-
 ```{r, include=FALSE,message=FALSE, echo=FALSE,warning = FALSE}
 ## application 1
 library(tidyverse)
@@ -129,9 +127,13 @@ hondo_dt %>% group_by(year, stand) %>%
 
 ```
 
-BINGO!!!: Tree ring width decreases over time, and patterns, changes follow an oscillation behavior which might suggest external (temperature, humidity) and internal (age, latitude, species) factors affecting tree growth, respectively. It seems that stands follow different patters, perhaps they have different composition, or why not, they can be more or less diverse in vascular species affecting growth. As you can see, the information observed in the graphics can bring us some insights about what is going on with ring trees dynamics.
+BINGO!!!: Tree ring width decreases over time (trend), following an oscillating behaviour (red) that suggests external (temperature, humidity) and internal (age, latitude, species) factors affecting tree growth, respectively. It seems that stands follow different patters, perhaps they have different composition, or why not, they can be more or less diverse in vascular species affecting growth. As you can see, the information observed in the graphics can bring us some insights about what is going on with ring trees dynamics.
+Here you can see a similar behaviour in Quebec (Rivet, et al. 2017)
 
+![](![QuebecTrend](https://user-images.githubusercontent.com/103060496/162556208-018e3845-47df-427e-9e72-c41e4b9abb33.png))
 
+Figure: Tree ring width distribution from 1840 to 2000
+Exciting right!
 
 ## VASCULAR PLANT DIVERSITY VARIATION ALONG SITES AND SOIL TEMPERATURE
 
@@ -586,22 +588,26 @@ library(vembedr)
 ```
 
 #### 6. REFERENCES
+DATASETS
+Hesketh, A., Loesberg, J., Bledsoe, E., Karst, J., & Macdonald, E. (2021). Seasonal and annual dynamics of western Canadian boreal forest plant communities: A legacy dataset spanning four decades [Data set]. Scholars Portal Dataverse. https://doi.org/10.5683/SP3/PZCAVE
 
 Canadian Endangered Species Conservation Council(CESCC). 2010. Wild Species 2010: The general status of Species in Canada.
 
 Jin, Y., and Qian, H. 2019. V.PhyloMaker: an R package that can generate very large phylogenies for vascular plants. Ecography, 42: 1353: 1359.
 
-Packer, J.G., and Gould, A.J. 2017. Vascular plants of Alberta, part 1: Ferns, Fern Allies, Gymnosperms, and monocots. University of Calgary Press. 281 pages.
-
 Earle, C.J. 2021.The Gymnossperm Database. Consulted on April 7, 2022: [https://www.conifers.org/zz/gymnosperms.php].
-Go Botany (3.7). 2022. Native Plant Trust. Consulted on April 7, 2022: [https://gobotany.nativeplanttrust.org]
 
 Fritts, H. C. (1987). TREE-RING ANALYSISTree-ring analysis. In Climatology (pp. 858–875). Springer US. https://doi.org/10.1007/0-387-30749-4_182
 
-Tumajer, J., & Lehejček, J. (2019). Boreal tree-rings are influenced by temperature up to two years prior to their formation: A trade-off between growth and reproduction? Environmental Research Letters, 14(12), 124024. https://doi.org/10.1088/1748-9326/ab5134
+Go Botany (3.7). 2022. Native Plant Trust. Consulted on April 7, 2022: [https://gobotany.nativeplanttrust.org]
 
 NOAA. . Picture Climate: How Can We Learn from Tree Rings? | National Centers for Environmental Information (NCEI) formerly known as National Climatic Data Center (NCDC). (n.d.). Retrieved 8 April 2022, from https://www.ncdc.noaa.gov/news/picture-climate-how-can-we-learn-tree-rings
 
+Packer, J.G., and Gould, A.J. 2017. Vascular plants of Alberta, part 1: Ferns, Fern Allies, Gymnosperms, and monocots. University of Calgary Press. 281 pages.
+
+Rivet, A., Payette, S., Berteaux, D., & Girard, F. (2017). Pines and porcupines: A tree-ring analysis of browsing and dynamics of an overmature pine forest. Canadian Journal of Forest Research, 47, 257–268. https://doi.org/10.1139/cjfr-2016-0214
+
+Tumajer, J., & Lehejček, J. (2019). Boreal tree-rings are influenced by temperature up to two years prior to their formation: A trade-off between growth and reproduction? Environmental Research Letters, 14(12), 124024. https://doi.org/10.1088/1748-9326/ab5134
 
                                                         FIN
 
