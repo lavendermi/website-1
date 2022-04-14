@@ -10,29 +10,47 @@ output:
 ---
 
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(include = T, warning=F, message=F, echo=F)
+knitr::opts_chunk$set(include = T, warning=F, message=F, echo=T)
 knitr::opts_knit$set(root.dir = "..")
 ```
 
 
+```{r, message=F, include=F, warning=F, echo=F}
+packages = c("pacman")
+
+## Now load or install&load all
+package.check <- lapply(
+  packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
+```
+
 Ecologists are often interested in the effects of perturbations (e.g. fires, logging, flooding or pollution) on biodiversity. 
 However, boiling biodiversity down to a single metric can be difficult.
-With the help of the Turkey lake dataset of benthic invertebrates [@reference], we will present you with a number of common metrics, their meaning, and how they can be visualized with the help of a Rank-Abundance curves. 
+With the help of the Turkey lake dataset of benthic invertebrates, we will present you with a number of common metrics, their meaning, and how they can be visualized with the help of a Rank-Abundance curves. 
 You will then have the option to learn to do it yourself using an R package called codyn.
 
 # The Data
 
 The Turkey Lakes Watershed Study (see map) is an initiative by several agencies of the government of Canada, initially designed to study the effects of acid rain on forest ecosystems.
+
 From 1995 to 2009, scientists collected, identified and counted benthic invertebrates from various stream beds around the Turkey Lakes catchment. 
+
 Benthic invertebrates are small, often microscopic organisms (see Fig. 1), but form an important link between aquatic and terrestrial habitats . 
-They can decompose terrestrial matter such as leaves, or consume periphyton growing on rocks within their streams.
+
+They can decompose terrestrial matter such as leaves, or consume biofilm growing on rocks within their streams.
 Benthic invertebrates can be a food source for aquatic animals, like small fish, or terrestrial animals such as fish.
-An experiment was conducted in 1997, where certain sampling sites experienced different levels of logging intensity.
-Due to their interaction with the terrestrial realm, we can hypothesize that the biodiversity of benthic invertebrate communities might be affected by logging.
+
+An experiment was conducted in 1997, where the forests next to the sampling sites were logged with differing intensities.
+
+Streamside logging affects many stream variables such as temperature, light exposure, leaf litter deposition, and biofilm growth. Because benthic invertebrates are affected by these variables, we can hypothesize that the biodiversity of benthic invertebrate communities might be affected by logging.
 
 ![Fig. 1: Various benthic macroinvertebrates under a stereo microscope. Source: G. Carter via NOAA/GLERL](benthicmacroinvertebrates_g.carter_noaa600px.jpg)
-
-
 
 ```{r include=T, message=FALSE, warning=FALSE}
 pacman::p_load(leaflet)
@@ -44,7 +62,6 @@ leaflet() %>%
 
 ```
 Figure 2. Interactive map of the Turkey Lakes study site
-
 
 # Why biodiversity matters 
 
@@ -87,7 +104,7 @@ head(sim)
 
 # Ways to calculate diversity {.tabset}
 
-Once we have collected our biodiversity data, there are several different ways to analyse and understand changes in community composition. Each of these metrics allow us to look at different aspects of the biodiversity data we collect.
+Once we have collected our biodiversity data, there are several different ways to analyze and understand changes in community composition. Each of these metrics allow us to look at different aspects of the biodiversity data we collect.
 
 To explore these different diversity metrics and how they are calculated, we have simulated a biodiversity dataset with 10 unique species and random abundances across 3 years. This will allow us to look at how diversity changes over time.
 
@@ -101,13 +118,13 @@ You can calculate the species richness for each year by counting the number of u
 
 ```{r, message=FALSE, warning=FALSE}
 pacman::p_load(codyn, kableExtra)
-#table just showing the number of unique species
-#species richness calcs i used to manually enter below
+# Table showing the number of unique species
+# Species richness calculation
 richness_table <- sim %>%
   group_by(time) %>%
   summarise(richness=length(unique(species)))
-#we should probably make this into a nice looking kable?
-kable(richness_table, col.names=c("Year", "Richness"), align="c")%>%
+
+kable(richness_table, col.names=c("Year", "Richness"), align="c") %>%
   kable_classic(full_width = F, html_font = "Cambria")
 ```
 
@@ -120,7 +137,7 @@ shannon <- sim %>%
   mutate(richness= case_when(time %in% c("2001", "2009") ~ 9, 
                              TRUE~ 7), 
     prop = n/sum(n),
-    shannon= sum(prop/log(prop))) %>%
+    shannon= sum(prop/log(prop))) %>% 
   as.data.frame()
 ```
 
@@ -136,19 +153,19 @@ shannon<-  sim %>%
     group_by(time, species) %>%
     summarise(n=n()) %>%
     mutate(prop = n/sum(n),
-    shannon= sum(prop/log(prop))) %>%
+    shannon= sum(prop/log(prop))) %>% # Calculate Shannon's index
     summarise(shannon = mean(shannon))
 
 kable(shannon, col.names=c("Year", "Shannon's Index"), align="c")%>%
   kable_classic(full_width = F, html_font = "Cambria")
 ```
 
-From our simulated dataset, we can see that the Shannon diversity decreases over time, which suggests that we lost important species as time went on. 
+From our simulated dataset, we can see that the Shannon diversity decreases over time, which suggests that we lost important species as time went on and our biodiversity decreased.
 
 
 ## Simpson's Index (D)
 
-Another metric we can use to analyse biodiversity in the Simpson's index ($D$) which indexes across the sum of all relative proportions of species's richness with an additional square power transformation. This equation. Though very similar to the calculation in the Shannon-Wiener Index, the Simpson index is more focused on dominance of species as it highlights the proportion of species in a sample.
+Another metric we can use to analyze biodiversity in the Simpson's index ($D$) which indexes across the sum of all relative proportions of species's richness with an additional square power transformation. This equation. Though very similar to the calculation in the Shannon-Wiener Index, the Simpson index is more focused on dominance of species as it highlights the proportion of species in a sample.
 
 
 $\gamma = - \sum_{i=1}^{S}p_i^2$
@@ -161,22 +178,19 @@ simpson<-  sim %>%
     summarise(n=n()) %>%
     mutate(prop = n/sum(n),
     simpson = sum((prop)^2)) %>%
-    summarise(simpson = mean(simpson))
+    summarise(simpson = mean(simpson)) # Calculate Simpson's index
 
 kable(simpson, col.names=c("Year", "Simpson's Index"), align="c")%>%
   kable_classic(full_width = F, html_font = "Cambria")
 ```
-Interestingly, the Simpson index appears to increase ovee time -- which suggests biodiversity is increasing?
 
-<> This definitely needs more interpretation
+Interestingly, the Simpson index appears to increase over time. This is likely because Simpson's index gives a higher weight to the more dominant species, so the value can actually increase even when biodiversity is decreasing.
 
 ## Evenness Index (E)
 
-Additionally, we can think about the evenness of species across a given area. Evenness is a metric for assessing species dominance, if evenness is high, it means most species are of equal dominance. If evenness if low, it means some species are more dominance than others
+Additionally, we can think about the evenness of species across a given area. Evenness is a metric for assessing species dominance, if evenness is high, it means most species are of equal dominance. If evenness if low, it means some species are more dominant than others
 
 $E = H / ln(S)$
-
-
 
 ```{r}
 evenness<-  sim %>%
@@ -186,7 +200,7 @@ evenness<-  sim %>%
                              TRUE~ 7),
            prop = n/sum(n),
     shannon= sum(prop/log(prop)), 
-    evenness = shannon/log(richness)) %>%
+    evenness = shannon/log(richness)) %>% # Calculate Shannon's evenness
     summarise(evenness = mean(evenness))
 
 kable(evenness, col.names=c("Year", "Evenness"), align="c")%>%
@@ -289,7 +303,6 @@ plotRankAbundance(log=T,
 
 ### Curve
 
-
 Finally, instead of using bars to represent abundances, we can simply use a lines to trace the distribution. This allows us to compare multiple distributions, in this case, from different three different sites with three levels of logging intensity.
 
 ```{r}
@@ -324,26 +337,36 @@ ComparisonPlot +
 ### Evenness
 
 The biodiversity metrics described (Shannon, Simpson, etc.) also incorporate community evenness, which can be thought of as the slope of rank-abundance curve. 
-For example, a community with one extremley dominant species with a rapid drop-off in species abundance will have a lower evennes than a community where more species are common.
+For example, a community with one very dominant species and a rapid drop-off in species abundance will have a lower evenness than a community where more species are common.
+In the plot below, the community at the site of "medium" logging (orange) is less even than the other two since it has a steeper average slope.
 
 ```{r}
-ComparisonPlot + 
-  geom_smooth(method=lm, se=FALSE, data=dfRank)
+q = {ComparisonPlot +  geom_smooth(method=lm, se=FALSE, data=dfRank) }%>%
+  ggplot_build()
+q$data[[1]]$alpha = 0.5
+
+ggplot_gtable(q) %>% 
+  plot 
+
+
 ```
 
-TODO: Fit a model line to the plots? e.g. broken stick etc.
+### More models
 
+Several models have been developed to understand rank-abundance curves (e.g. log-normal, broken stick model). 
+The `radfit` function from the `vegan` `R` package allows fitting of these different curve models (see https://search.r-project.org/CRAN/refmans/vegan/html/radfit.html)
+
+
+# `codyn` tutorial
 
 ```{r setup2, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(include = T, warning=F, message=F, echo=T)
 knitr::opts_knit$set(root.dir = "..")
 ```
 
-# `codyn` tutorial
-
-## Load Packages
-We will be using the `codyn` package for this tutorial. We will also use `ggplot2` and `dplyr` for plotting and cleaning.
-```{r, message=FALSE, warning=FALSE}
+# Load packages
+First we need to load the packages we will be using. We will use the `codyn` package for this tutorial. We will also use `ggplot2` and `dplyr` for plotting and cleaning.
+```{r, message=FALSE, warning=FALSE, echo=F, include=F}
 library(ggplot2)
 library(codyn)
 library(dplyr)
@@ -375,7 +398,7 @@ subset_codyn_ctrl <- data %>%
 
 
 ## Using the `codyn` package to analyze diversity data over time
-Ecologists are often interested in how diversity changes over time in one place. This is particularly interesting when you are looking at how species diversity responds to environmental change. This environmental change can be a single disturbance event such as a forest fire or more long-term change such as temperature increases due to climate change. The Turkey Lakes dataset provides us with an opportunity to look at how the diversity of benthic invertebrates changes over time and in response to logging. We can compare the diversity of different streams with different logging intensities and we can also compare the diversity of streams.
+Ecologists are often interested in how diversity changes over time in one place. This is particularly interesting when you are looking at how species diversity responds to environmental change. This environmental change can be a single disturbance event such as a forest fire or more long-term change such as temperature increases due to climate change. The Turkey Lakes dataset provides us with an opportunity to look at how the diversity of benthic invertebrates changes over time and in response to logging.
 
 The `codyn` package allows us to analyze the change in biodiversity over time using different metrics.
 
