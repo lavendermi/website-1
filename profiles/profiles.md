@@ -48,3 +48,6 @@ Kirsten Michelle Palmier
 website: https://www.urimss.ca/
 
 ResearchGate: https://www.researchgate.net/profile/Kirsten-Palmier
+
+Elizabeth Houghton
+GitHub: @ElizabethHoughton
