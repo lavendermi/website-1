@@ -1,11 +1,11 @@
 ---
-title: 'So Many Species, So Little Time: Measuring Biodiversity'
+title: 'So Many Species, So Little Time: Making Sense of Biodiversity'
 author: "Margaret Slein, Jory Griffiths, Egor Katkov (Living Data Project)"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
+description: "How to measure, visualize, and compare biodiversity"
 output: 
   html_document:
     toc: true
-    theme: united
     toc_float: true
 ---
 
@@ -41,9 +41,10 @@ The Turkey Lakes Watershed Study (see map) is an initiative by several agencies 
 
 From 1995 to 2009, scientists collected, identified and counted benthic invertebrates from various stream beds around the Turkey Lakes catchment. 
 
-Benthic invertebrates are small, often microscopic organisms (see Fig. 1), but form an important link between aquatic and terrestrial habitats . 
+Benthic invertebrates are small, often microscopic organisms (see Fig. 1), but form an important link between aquatic and terrestrial habitats. 
 
 They can decompose terrestrial matter such as leaves, or consume biofilm growing on rocks within their streams.
+
 Benthic invertebrates can be a food source for aquatic animals, like small fish, or terrestrial animals such as fish.
 
 An experiment was conducted in 1997, where the forests next to the sampling sites were logged with differing intensities.
