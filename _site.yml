@@ -10,7 +10,7 @@ navbar:
       href: index.html
     - text: "Tutorials"
       menu:
-        - text: "Codyn"
+        - text: "Biodiversity"
           href: lessons/2022-04-07-codyn-tutorial/index.html
         - text: "Chronic Wasting Disease"
           href: lessons/2022-04-07-chronic-wasting-disease-tutorial/index.html
