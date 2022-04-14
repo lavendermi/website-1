@@ -1,4 +1,4 @@
-library(dplyr)
+pacman::p_load(dplyr)
 
 treatment = tibble(catchment =             c("34M",  "34U",    "34L"),
                    `Logging Intensity`   = c("none", "medium", "high"))

@@ -1,8 +1,4 @@
-library(readr)
-library(dplyr)
-library(ggplot2)
-library(patchwork)
-library(purrr)
+pacman::p_load(readr, dplyr, ggplot2, patchwork, purrr)
 
 df = read_csv("Data/TLW_litterTraps.csv") %>% 
   mutate(

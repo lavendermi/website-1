@@ -1,4 +1,4 @@
-library(ggplot2)
+pacman::p_load(ggplot2)
 source("R/DataProcessing/getDataSubset.R")
 
 plotRAC <- function(df = sumOverReplicates, facets=T) {

@@ -1,6 +1,4 @@
-library(readr)
-library(dplyr)
-library(ggplot2)
+pacman::p_load(readr, dplyr, ggplot2)
 
 source("R/DataProcessing/getDataSubset.R")
 
