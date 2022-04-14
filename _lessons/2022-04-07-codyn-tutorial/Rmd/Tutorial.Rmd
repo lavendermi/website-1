@@ -268,7 +268,7 @@ There is often few highly abundant species and many very rare species.
 Below, you can see the rank-abundance distribution from one of the catchments in our Turkey Lakes benthic invertebrate dataset from the year following logging treatments (1998).
 
 
-```{r}
+```{r echo=F}
 source("R/RankAbundance/plotRankAbundance.R")
 yr = 1998
 plotRankAbundance(log=F,
@@ -282,7 +282,7 @@ plotRankAbundance(log=F,
 
 To better visualize the distribution, the y-axis is typically log-transformed
 
-```{r}
+```{r echo=F}
 plotRankAbundance(log=T,
                   select_catchment = c("34M",  "34U",    "34L"),     
                   select_year      = c(yr,yr),     
@@ -294,7 +294,7 @@ plotRankAbundance(log=T,
 Because most classic metrics of biodiversity do not take the species identity into account, we can drop species names from the x-axis, and simply refer to it's rank in the community. This is where the term **rank**-abundance comes from. 
 
 
-```{r}
+```{r echo=F}
 plotRankAbundance(log=T,
                   select_catchment = c("34M",  "34U",    "34L"),     
                   select_year      = c(yr,yr),     
@@ -306,7 +306,7 @@ plotRankAbundance(log=T,
 
 Finally, instead of using bars to represent abundances, we can simply use a lines to trace the distribution. This allows us to compare multiple distributions, in this case, from different three different sites with three levels of logging intensity.
 
-```{r}
+```{r echo=F}
 source("R/RankAbundance/plotRAC.R")
 df <- rankSpecies() %>% 
   filter(year==yr) 
@@ -319,7 +319,7 @@ ComparisonPlot
 
 We can compare species richness by comparing the maximum rank.
 
-```{r}
+```{r echo=F}
 dfRank = df %>% 
   filter(TotalCount > 0)
 annotations = dfRank %>% summarise(maxRank = max(Rank))
@@ -341,7 +341,7 @@ The biodiversity metrics described (Shannon, Simpson, etc.) also incorporate com
 For example, a community with one very dominant species and a rapid drop-off in species abundance will have a lower evenness than a community where more species are common.
 In the plot below, the community at the site of "medium" logging (orange) is less even than the other two since it has a steeper average slope.
 
-```{r}
+```{r echo=F}
 q = {ComparisonPlot +  geom_smooth(method=lm, se=FALSE, data=dfRank) }%>%
   ggplot_build()
 q$data[[1]]$alpha = 0.5
