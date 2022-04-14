@@ -1,18 +1,14 @@
 ---
 title: "Living Data Tutorials"
 description: |
-  Welcome to the website. I hope you enjoy it!
+  Open educational resources from the Living Data Project.
 site: distill::distill_website
+repository_url: https://github.com/Living-Data-Tutorials/website
+creative_commons: CC BY-NC
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-
-# Learn more about creating websites with Distill at:
-# https://rstudio.github.io/distill/website.html
-
-# Learn more about publishing to GitHub Pages at:
-# https://rstudio.github.io/distill/publish_website.html#github-pages
-
 ```
 
+We are a group of early career researchers from Canada creating a series of curated datasets with accompanying R-based tutorials that can be used to teach/illustrate ecological and evolution concepts, based on Canadian-generated data sources.
