@@ -43,7 +43,3 @@ Science communication Instagram: https://www.instagram.com/vmg_inpanama/
 Amy Forsythe
 Twitter: @amybforsythe
 Github: @AmyForsythe
-
-Rolando Trejo Pérez
-Twitter: https://twitter.com/Rlando_Trejo
-Github: https://github.com/RolandoTrejo
