@@ -1,10 +1,13 @@
 ---
-title: "After the storm: Impacts of a hemlock looper outbreak on tree species in Anticosti Island, 1973"
-description: |
-  A short description of the post.
+title: "Anticosti Historical Data Tutorial"
+description: "After the storm: Impacts of a hemlock looper outbreak on tree species in Anticosti Island, 1973"
 author:
-  - Victoria Marie Glynn
-  - Maxime Fraser Franco
+  - name: Victoria Marie Glynn
+    affiliation: McGill University
+    email: victoria.glynn@mail.mcgill.ca
+  - name: Maxime Fraser Franco
+    affiliation: Université du Québec à Montréal (UQAM) 
+    email: fraser_franco.maxime@courrier.uqam.ca
 date: 2022-04-07
 output:
   distill::distill_article:
