@@ -362,6 +362,7 @@ Answer:
 Check out this cool video on nesting Tree Swallows!
 
 ```{r, echo = FALSE, message= FALSE, }
+#install.packages("vembedr")
 library(vembedr)
 embed_url("https://www.youtube.com/watch?v=0FHSJnza9P8")
 ```

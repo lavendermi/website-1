@@ -44,6 +44,14 @@ Amy Forsythe
 Twitter: @amybforsythe
 Github: @AmyForsythe
 
+Kirsten Michelle Palmier
+website: https://www.urimss.ca/
+
+ResearchGate: https://www.researchgate.net/profile/Kirsten-Palmier
+
+Elizabeth Houghton
+GitHub: @ElizabethHoughton
+
 Rolando Trejo Pérez
 Twitter: https://twitter.com/Rlando_Trejo
 Github: https://github.com/RolandoTrejo

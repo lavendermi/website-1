@@ -1,13 +1,14 @@
 ---
 title: "Anticosti Historical Data Tutorial"
-description: "After the storm: Impacts of a hemlock looper outbreak on tree species in Anticosti Island, 1973"
+description: |
+    After the storm: Impacts of a hemlock looper outbreak on tree species in Anticosti Island, 1973
 author:
-  - name: Victoria Marie Glynn
+  - name: "Victoria Marie Glynn"
     affiliation: McGill University
-    email: victoria.glynn@mail.mcgill.ca
-  - name: Maxime Fraser Franco
+    url: mailto:victoria.glynn@mail.mcgill.ca
+  - name: "Maxime Fraser Franco"
     affiliation: Université du Québec à Montréal (UQAM) 
-    email: fraser_franco.maxime@courrier.uqam.ca
+    url: mailto:fraser_franco.maxime@courrier.uqam.ca
 date: 2022-04-07
 output:
   distill::distill_article:
@@ -18,13 +19,9 @@ This tutorial uses a tree damage dataset from Anticosti Island during a hemlock 
 
 The tutorial was built with the free and open-source software environment [R](https://www.r-project.org/) using the [leanr package](https://rstudio.github.io/learnr/) and and deployed using [Shiny](https://shiny.rstudio.com/). You can find the project folders and files in this [GitHub repository](https://github.com/Living-Data-Tutorials/Anticosti-Historical-Data).
 
-[Here is a direct link to our tutorial](https://vmglynn-ldp.shinyapps.io/LDT_Anticosti_Tutorial/#section-welcome-to-the-living-data-tutorials)
 
-The present tutorial was developed by Victoria Marie Glynn who is a PhD student at McGill University in Montréal, Québec, and Maxime Fraser Franco who is a PhD student at the Université du Québec à Montréal (UQAM) in Montréal, Québec. Please feel free to contact us if you have any question.
+The present tutorial was developed by Victoria Marie Glynn who is a PhD student at McGill University in Montréal, Québec, and Maxime Fraser Franco who is a PhD student at the Université du Québec à Montréal (UQAM) in Montréal, Québec. Please feel free to contact us if you have any question (you can do that by clicking on our names on this page header).
 
-Victoria Marie Glynn - victoria.glynn@mail.mcgill.ca
-
-Maxime Fraser Franco - fraser_franco.maxime@courrier.uqam.ca
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
