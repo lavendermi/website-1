@@ -9,7 +9,10 @@ author:
 date: 2022-08-26
 output:
   distill::distill_article:
-    self_contained: false
+    html_document:
+    toc: true
+    theme: united
+    toc_float: true
 ---
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(include = T, warning=F, message=F, echo=F)
@@ -204,6 +207,9 @@ In our simulated dataset, we can see that evenness is low from the start and dec
 ## Rank abundance curves with simulated data
 
 One way to visualize biodiversity data is to make a Rank Abundance Curve (RAC). On the y-axis we have the abundance of each species, and species, ranked by abundance on the x-axis. Using RACs, we can visualize relative abundances, changes in species dominance, and overall changes in community composition with species loss and gain. 
+
+
+
 ```{r}
 library(tidyverse)
 # Code or exercise on calculating species richness?
@@ -355,7 +361,9 @@ knitr::opts_knit$set(root.dir = "..")
 ```
 
 ## Load Packages
+
 We will be using the `codyn` package for this tutorial. We will also use `ggplot2` and `dplyr` for plotting and cleaning.
+
 ```{r, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(codyn)
@@ -364,13 +372,16 @@ library(dplyr)
 
 
 ## Load Data
+
 These data are from the Turkey Lakes watershed experiment. This dataset contains the abundances of benthic invertebrate species measured in the May and June from 1995 to 2001. They recorded the type and number of invertebrates in an area of the stream, with 10 replicates per sampling event. These forests next to these streams were logged in 1997 with varying harvest intensities, with low, medium, and high intensity harvest and a control stream with no forest harvest. We will using the `codyn` package to analyze the diversity of these benthic invertebrates over time. 
+
 ```{r}
 data<-read.csv("stream_invertebrates.csv")
 head(data)
 ```
 
 For many functions, the `codyn` package can only look at data from one stream at a time. So first we will separate each stream into it's own data frame.
+
 ```{r, message=FALSE, warning=FALSE}
 # high intensity logging treatment
 subset_codyn_high <- data %>%
@@ -393,12 +404,14 @@ Ecologists are often interested in how diversity changes over time in one place.
 The `codyn` package allows us to analyze the change in biodiversity over time using different metrics.
 
 ## Using `community_structure()`
+
 `community_structure()` is a function in the package `codyn` that calculates species richness and evenness. 
 
 ### Species Richness and Evenness
 For example, we can use `community_structure()` to look at the change in species richness and evenness over time in one of the Turkey Lake streams. We will choose the stream with high logging intensity as an example. This function can only look at one stream at a time so make sure to subset out the stream that you are interested in.
 
 Let's take a look at the high intensity logging stream data.
+
 ```{r}
 head(subset_codyn_high)
 ```
@@ -406,11 +419,13 @@ head(subset_codyn_high)
 As you can see, there is a column for year, species, replicate, and abundance.
 
 The community structure function has five arguments. The first is `df` where you put in the data frame of interest, in our case `subset_codyn_high`. The `time.var` argument is where you put in your time variable (`year`), the abundance.var argument is where you put the column that holds the abundance variable (`abundance`) and the `replicate.var` argument holds the column with the replicates (`replicate`). In the `metric` argument, you can specify the metric of evenness that you want the function to calculate. There are three possible metrics: `Evar`, `SimpsonEvenness`, and `EQ`, which all calculate evenness in different ways. We will use Simpson's Evenness in this tutorial. Remember, if you ever need a refresher on the syntax you can type `?community_structure` into the R script.
+
 ```{r}
 richness_high<-community_structure(df=subset_codyn_high, time.var="year", abundance.var="abundance", replicate.var="replicate", metric="SimpsonEvenness")
 ```
 
 We can take a look at the output.
+
 ```{r}
 head(richness_high)
 ```
@@ -420,6 +435,7 @@ As you can see, this returns a data frame with the year, replicate, richness cal
 #### Plot species richness
 
 We can plot this data frame to see the changes over time.
+
 ```{r}
 ggplot()+
   geom_point(richness_high, mapping=aes(x=year, y=richness))+
@@ -431,7 +447,9 @@ ggplot()+
 Here is a plot of species richness, with a different value for each replicate. The red line is the year that the streams were logged. Do you see any change? Do you think there are any significant patterns? How does the variability between replicates compare to the variability between years?
 
 #### Plot species evenness
+
 We can also plot species evenness over time.
+
 ```{r}
 ggplot()+
   geom_point(richness_high, mapping=aes(x=year, y=SimpsonEvenness))+
@@ -454,6 +472,7 @@ shannon_div_high<-community_diversity(df=subset_codyn_high, time.var="year", abu
 ```
 
 Let's take a look at the output for this function.
+
 ```{r}
 head(shannon_div_high)
 ```
@@ -461,7 +480,9 @@ head(shannon_div_high)
 You can see it gives us a data frame of `year`, `replicate`, and `Shannon`, which is our measure of Shannon diversity.
 
 #### Plot Shannon's diversity
+
 We can plot these to see change over time.
+
 ```{r}
 ggplot()+
   geom_point(shannon_div_high, mapping=aes(x=year, y=Shannon))+
@@ -471,18 +492,23 @@ ggplot()+
 ```
 
 ### Simpson's diversity
+
 We can also use the same function to calculate Simpson's diversity by simply changing the `metric` argument to `InverseSimpson`. 
+
 ```{r}
 simpson_div_high<-community_diversity(df=subset_codyn_high, time.var="year", abundance.var="abundance", replicate.var="replicate", metric="InverseSimpson")
 ```
 
 We can look at the output.
+
 ```{r}
 head(simpson_div_high)
 ```
 
 #### Plot Simpson's diversity
+
 And then plot.
+
 ```{r}
 ggplot()+
   geom_point(simpson_div_high, mapping=aes(x=year, y=InverseSimpson))+
