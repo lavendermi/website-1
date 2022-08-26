@@ -14,6 +14,7 @@ output:
 ```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(include = T, warning=F, message=F, echo=F)
 knitr::opts_knit$set(root.dir = "..")
+knitr::opts_chunk$set(error = TRUE)
 ```
 
 

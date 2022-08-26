@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>species Richness + Rank Abundance Curves</title>
+
+  <meta property="description" itemprop="description" content="So Many Species, So Little Time: Measuring Biodiversity"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2022-08-26"/>
+  <meta property="article:created" itemprop="dateCreated" content="2022-08-26"/>
+  <meta name="article:author" content="Jory Griffith"/>
+  <meta name="article:author" content="Egor Katkov"/>
+  <meta name="article:author" content="Maggie Slein"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="species Richness + Rank Abundance Curves"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="So Many Species, So Little Time: Measuring Biodiversity"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="species Richness + Rank Abundance Curves"/>
+  <meta property="twitter:description" content="So Many Species, So Little Time: Measuring Biodiversity"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["species Richness + Rank Abundance Curves"]},{"type":"character","attributes":{},"value":["So Many Species, So Little Time: Measuring Biodiversity\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Jory Griffith"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Egor Katkov"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Maggie Slein"]}]}]},{"type":"character","attributes":{},"value":["2022-08-26"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["benthicmacroinvertebrates_g.carter_noaa.jpg","benthicmacroinvertebrates_g.carter_noaa600px.jpg","Data/TLW_invertebrate_metaEN.csv","Data/TLW_invertebrate_metaFR.csv","Data/TLW_invertebrateClassification.csv","Data/TLW_invertebrateDensity.csv","Data/TLW_leafdiskDecomposition.csv","Data/TLW_leafpackDecomposition.csv","Data/TLW_litterBlowInTraps.csv","Data/TLW_litterTraps.csv","Data/TLW_sedimentCores.csv","Data/TLW_sedimentRings.csv","Data/TLW_sedimentTubes.csv","Data/TLW_streamHabitatSurveys.csv","R/DataProcessing/getDataSubset.R","R/ExplorePlots/JGTurkeyLake.Rmd","R/ExplorePlots/plotLitterTrapData.R","R/RankAbundance/plotRAC.R","R/RankAbundance/plotRankAbundance.R","R/RankAbundance/ShinyApp/server.R","R/RankAbundance/ShinyApp/ui.R","species-richness-rank-abundance-curves_files/figure-html5/unnamed-chunk-8-1.png","stream_invertebrates.csv"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="species-richness-rank-abundance-curves_files/header-attrs-2.16/header-attrs.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="species-richness-rank-abundance-curves_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+  <script src="species-richness-rank-abundance-curves_files/leaflet-1.3.1/leaflet.js"></script>
+  <link href="species-richness-rank-abundance-curves_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+  <script src="species-richness-rank-abundance-curves_files/proj4-2.6.2/proj4.min.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+  <link href="species-richness-rank-abundance-curves_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+  <script src="species-richness-rank-abundance-curves_files/leaflet-binding-2.1.1/leaflet.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="species-richness-rank-abundance-curves_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <script src="species-richness-rank-abundance-curves_files/popper-2.6.0/popper.min.js"></script>
+  <link href="species-richness-rank-abundance-curves_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="species-richness-rank-abundance-curves_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="species-richness-rank-abundance-curves_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="species-richness-rank-abundance-curves_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"species Richness + Rank Abundance Curves","description":"So Many Species, So Little Time: Measuring Biodiversity","authors":[{"author":"Jory Griffith","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Egor Katkov","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Maggie Slein","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-08-26T00:00:00.000-07:00","citationText":"Griffith, et al., 2022"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>species Richness + Rank Abundance Curves</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>So Many Species, So Little Time: Measuring Biodiversity</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Jory Griffith
+  
+,   
+  Egor Katkov
+  
+,   
+  Maggie Slein
+  
+<br/>2022-08-26
+</div>
+
+<div class="d-article">
+<p>Ecologists are often interested in the effects of perturbations (e.g. fires, logging, flooding or pollution) on biodiversity.
+However, boiling biodiversity down to a single metric can be difficult.
+With the help of the Turkey lake dataset of benthic invertebrates <span class="citation" data-cites="reference">[@reference]</span>, we will present you with a number of common metrics, their meaning, and how they can be visualized with the help of a Rank-Abundance curves.
+You will then have the option to learn to do it yourself using an R package called codyn.</p>
+<h1 id="the-data">The Data</h1>
+<p>The Turkey Lakes Watershed Study (see map) is an initiative by several agencies of the government of Canada, initially designed to study the effects of acid rain on forest ecosystems.
+From 1995 to 2009, scientists collected, identified and counted benthic invertebrates from various stream beds around the Turkey Lakes catchment.
+Benthic invertebrates are small, often microscopic organisms (see Fig. 1), but form an important link between aquatic and terrestrial habitats .
+They can decompose terrestrial matter such as leaves, or consume periphyton growing on rocks within their streams.
+Benthic invertebrates can be a food source for aquatic animals, like small fish, or terrestrial animals such as fish.
+An experiment was conducted in 1997, where certain sampling sites experienced different levels of logging intensity.
+Due to their interaction with the terrestrial realm, we can hypothesize that the biodiversity of benthic invertebrate communities might be affected by logging.</p>
+<figure>
+<img src="benthicmacroinvertebrates_g.carter_noaa600px.jpg" alt="Fig. 1: Various benthic macroinvertebrates under a stereo microscope. Source: G. Carter via NOAA/GLERL" /><figcaption aria-hidden="true">Fig. 1: Various benthic macroinvertebrates under a stereo microscope. Source: G. Carter via NOAA/GLERL</figcaption>
+</figure>
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-9269a60e5d19b3908de3" style="width:624px;height:384px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9269a60e5d19b3908de3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[47.0515,-84.411,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Turkey Lakes",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[47.0515,47.0515],"lng":[-84.411,-84.411]},"setView":[[47.0515,-84.411],2,[]]},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>Figure 2. Interactive map of the Turkey Lakes study site</p>
+<h1 id="why-biodiversity-matters">Why biodiversity matters</h1>
+<p>In an ever-changing world, as biologists, we are often concerned with how organisms will be able to cope with disturbances and increasingly, global climate change. We often think of biodiversity as an important buffer to withstanding these changes, as more diversity may mean more success in environments persisting beyond the change. It is the idea of survival of the fittest, but with more security in sheer numbers.</p>
+<h1 id="types-of-data-typically-collected">Types of data typically collected</h1>
+<p>Often times, biologists interested in collecting biodiversity data collect a standard set of responses. These often include:</p>
+<ol type="1">
+<li>The different kinds of species in a given area or environment</li>
+<li>The number of each of these species (abundance)</li>
+<li>Information about the area itself (i.e. habitat type, weather conditions, etc.)</li>
+<li>If the work involves an setting up an experiment, collecting the control vs. experimental groups as well as metrics for repeatability + statistical power (replicates)</li>
+<li>Of course, the time frame over which the data were collected</li>
+</ol>
+<h1 id="our-simulated-data">Our simulated data</h1>
+Here is a look at this simulated data:
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>  species abundance time
+1       2       149 2001
+2       7       104 2001
+3       8        42 2001
+4       6         8 2001
+5      10       191 2001
+6       4       196 2001</code></pre>
+</div>
+<h1 class="tabset" id="ways-to-calculate-diversity">Ways to calculate diversity</h1>
+<p>Once we have collected our biodiversity data, there are several different ways to analyse and understand changes in community composition. Each of these metrics allow us to look at different aspects of the biodiversity data we collect.</p>
+<p>To explore these different diversity metrics and how they are calculated, we have simulated a biodiversity dataset with 10 unique species and random abundances across 3 years. This will allow us to look at how diversity changes over time.</p>
+<h2 id="species-richness">Species Richness</h2>
+<p>Perhaps the simplest measure of biodiversity is species richness (<span class="math inline">\(S\)</span>).</p>
+<p><span class="math inline">\(S = \sum_{i=1}^{S}p_i^o\)</span></p>
+<p>You can calculate the species richness for each year by counting the number of unique species recorded in that year. Then you can look at how the number of different species in a community changes over time.</p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Richness
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2001
+</td>
+<td style="text-align:center;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2009
+</td>
+<td style="text-align:center;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+7
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can see in this table that across years, the number of species in the same area fluctuated, some years with more species, other years with less.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="shannon-wiener-index-h">Shannon-Wiener Index (H)</h2>
+<p>Another metric we can use to analyze biodiversity is the Shannon-Wiener Index (<span class="math inline">\(H\)</span>), which indexes across the sum of all relative proportions of species richness’s with an additional logarithmic transformation. This equation uses both the number of species in a specific area (richness) and relative abundance (evenness).</p>
+<p><span class="math inline">\(H&#39; = - \sum_{i=1}^{S}p_ilnp_i\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Shannon’s Index
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2001
+</td>
+<td style="text-align:center;">
+-0.4990620
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2009
+</td>
+<td style="text-align:center;">
+-0.5188309
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+-0.5458555
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>From our simulated dataset, we can see that the Shannon diversity decreases over time, which suggests that we lost important species as time went on.</p>
+<h2 id="simpsons-index-d">Simpson’s Index (D)</h2>
+<p>Another metric we can use to analyse biodiversity in the Simpson’s index (<span class="math inline">\(D\)</span>) which indexes across the sum of all relative proportions of species’s richness with an additional square power transformation. This equation. Though very similar to the calculation in the Shannon-Wiener Index, the Simpson index is more focused on dominance of species as it highlights the proportion of species in a sample.</p>
+<p><span class="math inline">\(\gamma = - \sum_{i=1}^{S}p_i^2\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Simpson’s Index
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2001
+</td>
+<td style="text-align:center;">
+0.135
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2009
+</td>
+<td style="text-align:center;">
+0.145
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+0.160
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Interestingly, the Simpson index appears to increase ovee time – which suggests biodiversity is increasing?</p>
+<p>&lt;&gt; This definitely needs more interpretation</p>
+<h2 id="evenness-index-e">Evenness Index (E)</h2>
+<p>Additionally, we can think about the evenness of species across a given area. Evenness is a metric for assessing species dominance, if evenness is high, it means most species are of equal dominance. If evenness if low, it means some species are more dominance than others</p>
+<p><span class="math inline">\(E = H / ln(S)\)</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Evenness
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+2001
+</td>
+<td style="text-align:center;">
+-0.2271329
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2009
+</td>
+<td style="text-align:center;">
+-0.2361301
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+2020
+</td>
+<td style="text-align:center;">
+-0.2805142
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In our simulated dataset, we can see that evenness is low from the start and decreases over time, suggesting that more species become increasingly dominant over time.</p>
+<h1 id="visualizing-species-diversity">Visualizing species diversity</h1>
+<h2 id="rank-abundance-curves-with-simulated-data">Rank abundance curves with simulated data</h2>
+One way to visualize biodiversity data is to make a Rank Abundance Curve (RAC). On the y-axis we have the abundance of each species, and species, ranked by abundance on the x-axis. Using RACs, we can visualize relative abundances, changes in species dominance, and overall changes in community composition with species loss and gain.
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="species-richness-rank-abundance-curves_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<p>We can see here between 2007 and 2018 in our simulated community, there were differences in absolute abundance as well as which species were dominant, which species disappeared, and which species were new. For instance, in 2007, species 2 was the third most abundant species, but it 2018, it was the most abundant species. However, species 3 is lost by 2018, while species 10 is gained in 2018.</p>
+<h2 class="tabset" id="rank-abundance-curves-with-turkey-lakes-invertebrate-data">Rank abundance curves with Turkey lakes invertebrate data</h2>
+<h3 id="intro">Intro</h3>
+<p>In contrast, RACs in nature are rarely as evenly distributed as the simulated data.
+There is often few highly abundant species and many very rare species.
+Below, you can see the rank-abundance distribution from one of the catchments in our Turkey Lakes benthic invertebrate dataset from the year following logging treatments (1998).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Error in file(filename, &quot;r&quot;, encoding = encoding): cannot open the connection</code></pre>
+<pre><code>Error in plotRankAbundance(log = F, select_catchment = c(&quot;34M&quot;, &quot;34U&quot;, : could not find function &quot;plotRankAbundance&quot;</code></pre>
+</div>
+<h3 id="log">Log</h3>
+<p>To better visualize the distribution, the y-axis is typically log-transformed</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Error in plotRankAbundance(log = T, select_catchment = c(&quot;34M&quot;, &quot;34U&quot;, : could not find function &quot;plotRankAbundance&quot;</code></pre>
+</div>
+<h3 id="rank">Rank</h3>
+<p>Because most classic metrics of biodiversity do not take the species identity into account, we can drop species names from the x-axis, and simply refer to it’s rank in the community. This is where the term <strong>rank</strong>-abundance comes from.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Error in plotRankAbundance(log = T, select_catchment = c(&quot;34M&quot;, &quot;34U&quot;, : could not find function &quot;plotRankAbundance&quot;</code></pre>
+</div>
+<h3 id="curve">Curve</h3>
+<p>Finally, instead of using bars to represent abundances, we can simply use a lines to trace the distribution. This allows us to compare multiple distributions, in this case, from different three different sites with three levels of logging intensity.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Error in file(filename, &quot;r&quot;, encoding = encoding): cannot open the connection</code></pre>
+<pre><code>Error in rankSpecies(): could not find function &quot;rankSpecies&quot;</code></pre>
+<pre><code>Error in plotRAC(., facets = F): could not find function &quot;plotRAC&quot;</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): object &#39;ComparisonPlot&#39; not found</code></pre>
+</div>
+<h3 id="species-richness-1">Species Richness</h3>
+<p>We can compare species richness by comparing the maximum rank.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Error in UseMethod(&quot;filter&quot;): no applicable method for &#39;filter&#39; applied to an object of class &quot;function&quot;</code></pre>
+<pre><code>Error in summarise(., maxRank = max(Rank)): object &#39;dfRank&#39; not found</code></pre>
+<pre><code>Error in annotations$xend = c(40, 31, 34): object &#39;annotations&#39; not found</code></pre>
+<pre><code>Error in annotations$yend = rep(1, 3): object &#39;annotations&#39; not found</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): object &#39;annotations&#39; not found</code></pre>
+<pre><code>Error in annotations$y = rep(5, 3): object &#39;annotations&#39; not found</code></pre>
+<pre><code>Error in eval(expr, envir, enclos): object &#39;ComparisonPlot&#39; not found</code></pre>
+</div>
+<h3 id="evenness">Evenness</h3>
+<p>The biodiversity metrics described (Shannon, Simpson, etc.) also incorporate community evenness, which can be thought of as the slope of rank-abundance curve.
+For example, a community with one very dominant species and a rapid drop-off in species abundance will have a lower evenness than a community where more species are common.
+In the plot below, the community at the site of “medium” logging (organge) is less even than the other two since it has a steeper average slope.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Error in ggplot_build(.): object &#39;ComparisonPlot&#39; not found</code></pre>
+<pre><code>Error in `*tmp*`$data: object of type &#39;closure&#39; is not subsettable</code></pre>
+<pre><code>Error in UseMethod(&quot;ggplot_gtable&quot;): no applicable method for &#39;ggplot_gtable&#39; applied to an object of class &quot;function&quot;</code></pre>
+</div>
+<h3 id="more-models">More models</h3>
+<p>Several models have been developed to understand rank-abundance curves (e.g. log-normal, broken stick model).
+The <code>radfit</code> function from the <code>vegan</code> <code>R</code> package allows fitting of these different curve models (see <a href="https://search.r-project.org/CRAN/refmans/vegan/html/radfit.html" class="uri">https://search.r-project.org/CRAN/refmans/vegan/html/radfit.html</a>)</p>
+<h1 id="codyn-tutorial"><code>codyn</code> tutorial</h1>
+<h2 id="load-packages">Load Packages</h2>
+We will be using the <code>codyn</code> package for this tutorial. We will also use <code>ggplot2</code> and <code>dplyr</code> for plotting and cleaning.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/NCEAS/codyn/'>codyn</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<h2 id="load-data">Load Data</h2>
+These data are from the Turkey Lakes watershed experiment. This dataset contains the abundances of benthic invertebrate species measured in the May and June from 1995 to 2001. They recorded the type and number of invertebrates in an area of the stream, with 10 replicates per sampling event. These forests next to these streams were logged in 1997 with varying harvest intensities, with low, medium, and high intensity harvest and a control stream with no forest harvest. We will using the <code>codyn</code> package to analyze the diversity of these benthic invertebrates over time.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"stream_invertebrates.csv"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 × 3
+# Groups:   species [4]
+  species  time abundance
+    &lt;int&gt; &lt;dbl&gt;     &lt;int&gt;
+1       1  2007       521
+2       1  2018       193
+3       2  2007       332
+4       2  2018       404
+5       3  2007       180
+6       4  2007         2</code></pre>
+</div>
+For many functions, the <code>codyn</code> package can only look at data from one stream at a time. So first we will separate each stream into it’s own data frame.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># high intensity logging treatment</span></span>
+<span><span class='va'>subset_codyn_high</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"high"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in `filter()`:
+! Problem while computing `..1 = treatment == &quot;high&quot;`.
+ℹ The error occurred in group 1: species = 1.
+Caused by error in `mask$eval_all_filter()`:
+! object &#39;treatment&#39; not found</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># medium intensity logging treatment</span></span>
+<span><span class='va'>subset_codyn_med</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"medium"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in `filter()`:
+! Problem while computing `..1 = treatment == &quot;medium&quot;`.
+ℹ The error occurred in group 1: species = 1.
+Caused by error in `mask$eval_all_filter()`:
+! object &#39;treatment&#39; not found</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># low intensity logging treatment</span></span>
+<span><span class='va'>subset_codyn_low</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>treatment</span> <span class='op'>==</span> <span class='st'>"low"</span><span class='op'>)</span> </span></code></pre>
+</div>
+<pre><code>Error in `filter()`:
+! Problem while computing `..1 = treatment == &quot;low&quot;`.
+ℹ The error occurred in group 1: species = 1.
+Caused by error in `mask$eval_all_filter()`:
+! object &#39;treatment&#39; not found</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># control stream (no logging)</span></span>
+<span><span class='va'>subset_codyn_ctrl</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>treatment</span><span class='op'>==</span><span class='st'>"control"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in `filter()`:
+! Problem while computing `..1 = treatment == &quot;control&quot;`.
+ℹ The error occurred in group 1: species = 1.
+Caused by error in `mask$eval_all_filter()`:
+! object &#39;treatment&#39; not found</code></pre>
+</div>
+<h2 id="using-the-codyn-package-to-analyze-diversity-data-over-time">Using the <code>codyn</code> package to analyze diversity data over time</h2>
+<p>Ecologists are often interested in how diversity changes over time in one place. This is particularly interesting when you are looking at how species diversity responds to environmental change. This environmental change can be a single disturbance event such as a forest fire or more long-term change such as temperature increases due to climate change. The Turkey Lakes dataset provides us with an opportunity to look at how the diversity of benthic invertebrates changes over time and in response to logging. We can compare the diversity of different streams with different logging intensities and we can also compare the diversity of streams.</p>
+<p>The <code>codyn</code> package allows us to analyze the change in biodiversity over time using different metrics.</p>
+<h2 id="using-community_structure">Using <code>community_structure()</code></h2>
+<p><code>community_structure()</code> is a function in the package <code>codyn</code> that calculates species richness and evenness.</p>
+<h3 id="species-richness-and-evenness">Species Richness and Evenness</h3>
+<p>For example, we can use <code>community_structure()</code> to look at the change in species richness and evenness over time in one of the Turkey Lake streams. We will choose the stream with high logging intensity as an example. This function can only look at one stream at a time so make sure to subset out the stream that you are interested in.</p>
+Let’s take a look at the high intensity logging stream data.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>subset_codyn_high</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in head(subset_codyn_high): object &#39;subset_codyn_high&#39; not found</code></pre>
+</div>
+<p>As you can see, there is a column for year, species, replicate, and abundance.</p>
+The community structure function has five arguments. The first is <code>df</code> where you put in the data frame of interest, in our case <code>subset_codyn_high</code>. The <code>time.var</code> argument is where you put in your time variable (<code>year</code>), the abundance.var argument is where you put the column that holds the abundance variable (<code>abundance</code>) and the <code>replicate.var</code> argument holds the column with the replicates (<code>replicate</code>). In the <code>metric</code> argument, you can specify the metric of evenness that you want the function to calculate. There are three possible metrics: <code>Evar</code>, <code>SimpsonEvenness</code>, and <code>EQ</code>, which all calculate evenness in different ways. We will use Simpson’s Evenness in this tutorial. Remember, if you ever need a refresher on the syntax you can type <code>?community_structure</code> into the R script.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>richness_high</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/pkg/codyn/man/community_structure.html'>community_structure</a></span><span class='op'>(</span>df<span class='op'>=</span><span class='va'>subset_codyn_high</span>, time.var<span class='op'>=</span><span class='st'>"year"</span>, abundance.var<span class='op'>=</span><span class='st'>"abundance"</span>, replicate.var<span class='op'>=</span><span class='st'>"replicate"</span>, metric<span class='op'>=</span><span class='st'>"SimpsonEvenness"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in community_structure(df = subset_codyn_high, time.var = &quot;year&quot;, : object &#39;subset_codyn_high&#39; not found</code></pre>
+</div>
+We can take a look at the output.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>richness_high</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in head(richness_high): object &#39;richness_high&#39; not found</code></pre>
+</div>
+<p>As you can see, this returns a data frame with the year, replicate, richness calculation, and evenness measure. It calculates richness and evenness separately for each replicate sample in the stream, so we have a measure of variability within samples as well as variability across years.</p>
+<h4 id="plot-species-richness">Plot species richness</h4>
+We can plot this data frame to see the changes over time.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='va'>richness_high</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>richness</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='st'>"Species Richness"</span>, x<span class='op'>=</span><span class='st'>"Year"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept<span class='op'>=</span><span class='fl'>1997</span>, linetype<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in fortify(data): object &#39;richness_high&#39; not found</code></pre>
+</div>
+<p>Here is a plot of species richness, with a different value for each replicate. The red line is the year that the streams were logged. Do you see any change? Do you think there are any significant patterns? How does the variability between replicates compare to the variability between years?</p>
+<h4 id="plot-species-evenness">Plot species evenness</h4>
+We can also plot species evenness over time.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='va'>richness_high</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>SimpsonEvenness</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='st'>"Simpson's Evenness"</span>, x<span class='op'>=</span><span class='st'>"Year"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept<span class='op'>=</span><span class='fl'>1997</span>, linetype<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in fortify(data): object &#39;richness_high&#39; not found</code></pre>
+</div>
+<p>Do you see any patterns in the evenness between years?</p>
+<h2 id="using-community_diversity">Using <code>community_diversity()</code></h2>
+<h3 id="shannons-diversity">Shannon’s diversity</h3>
+<p>Species richness and evenness are very simple ways to look at species diversity. However, as you learned from the rank abundance curves, species have different abundances within the community, with some species having very high abundance and most species having low abundance. Species richness does not take into account the relative abundances of each species, which limits the inferences we can make. The Shannon-Weiner diversity metric does take into account these relative abundances when calculating the diversity of a community and allows us to make more meaningful inferences about how biodiversity is changing over time.</p>
+<p>The <code>codyn</code> package allows you to calculate the Shannon diversity index for a single site over time using the <code>community_diversity()</code> function. We will again use the data from the stream with the high logging intensity. Luckily, this function has the exact same syntax as the <code>community_structure()</code> function! The only difference is that the options for the <code>metric</code> argument are <code>Shannon</code> and <code>InverseSimpson</code>. We will first use <code>Shannon</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>shannon_div_high</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/pkg/codyn/man/community_diversity.html'>community_diversity</a></span><span class='op'>(</span>df<span class='op'>=</span><span class='va'>subset_codyn_high</span>, time.var<span class='op'>=</span><span class='st'>"year"</span>, abundance.var<span class='op'>=</span><span class='st'>"abundance"</span>, replicate.var<span class='op'>=</span><span class='st'>"replicate"</span>, metric<span class='op'>=</span><span class='st'>"Shannon"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in community_diversity(df = subset_codyn_high, time.var = &quot;year&quot;, : object &#39;subset_codyn_high&#39; not found</code></pre>
+</div>
+Let’s take a look at the output for this function.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>shannon_div_high</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in head(shannon_div_high): object &#39;shannon_div_high&#39; not found</code></pre>
+</div>
+<p>You can see it gives us a data frame of <code>year</code>, <code>replicate</code>, and <code>Shannon</code>, which is our measure of Shannon diversity.</p>
+<h4 id="plot-shannons-diversity">Plot Shannon’s diversity</h4>
+We can plot these to see change over time.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='va'>shannon_div_high</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>Shannon</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='st'>"Shannon Diversity"</span>, x<span class='op'>=</span><span class='st'>"Year"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept<span class='op'>=</span><span class='fl'>1997</span>, linetype<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in fortify(data): object &#39;shannon_div_high&#39; not found</code></pre>
+</div>
+<h3 id="simpsons-diversity">Simpson’s diversity</h3>
+We can also use the same function to calculate Simpson’s diversity by simply changing the <code>metric</code> argument to <code>InverseSimpson</code>.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>simpson_div_high</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/pkg/codyn/man/community_diversity.html'>community_diversity</a></span><span class='op'>(</span>df<span class='op'>=</span><span class='va'>subset_codyn_high</span>, time.var<span class='op'>=</span><span class='st'>"year"</span>, abundance.var<span class='op'>=</span><span class='st'>"abundance"</span>, replicate.var<span class='op'>=</span><span class='st'>"replicate"</span>, metric<span class='op'>=</span><span class='st'>"InverseSimpson"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in community_diversity(df = subset_codyn_high, time.var = &quot;year&quot;, : object &#39;subset_codyn_high&#39; not found</code></pre>
+</div>
+We can look at the output.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>simpson_div_high</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in head(simpson_div_high): object &#39;simpson_div_high&#39; not found</code></pre>
+</div>
+<h4 id="plot-simpsons-diversity">Plot Simpson’s diversity</h4>
+And then plot.
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='va'>simpson_div_high</span>, mapping<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>year</span>, y<span class='op'>=</span><span class='va'>InverseSimpson</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_classic</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>y<span class='op'>=</span><span class='st'>"Simpson Diversity"</span>, x<span class='op'>=</span><span class='st'>"Year"</span><span class='op'>)</span><span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_vline</a></span><span class='op'>(</span>xintercept<span class='op'>=</span><span class='fl'>1997</span>, linetype<span class='op'>=</span><span class='fl'>2</span>, color<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Error in fortify(data): object &#39;simpson_div_high&#39; not found</code></pre>
+</div>
+<p>How do these patterns compare to the patterns of Shannon’s diversity over time? How do the values compare?</p>
+<h2 id="activity">Activity</h2>
+<p>Calculate richness, evenness, and diversity using both the Shannon and Simpson indices for the streams with low intensity logging, high intensity logging, and no logging. The data for these streams are <code>subset_codyn_low</code>, <code>subset_codyn_high</code>, and <code>subset_codyn_ctrl</code>. Plot these indices. Do you see any patterns across years? How do these compare to the patterns in the high intensity logging stream?</p>
+<h1 id="references">References</h1>
+<p>I got the equations from this paper: <a href="DOI:10.1007/s10531-016-1261-0" class="uri">DOI:10.1007/s10531-016-1261-0</a></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
