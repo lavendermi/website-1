@@ -1868,13 +1868,8 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      const citeChild = $(this).children()[0]
-      // Do not process if @xyz has been used without escaping and without bibliography activated
-      // https://github.com/rstudio/distill/issues/466
-      if (citeChild === undefined) return true
-
-      if (citeChild.nodeName == "D-FOOTNOTE") {
-        var fn = citeChild
+      if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+        var fn = $(this).children()[0]
         $(this).html(fn.shadowRoot.querySelector("sup"))
         $(this).id = fn.id
         fn.remove()
@@ -2442,7 +2437,7 @@ d-appendix d-footnote-list a.footnote-backlink {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Sexual Dimorphism and Sexual Selection in Tree Swallows","description":"This is a tutorial to get you familiar with R and explore ecological concepts through a Tree Swallow nest productivity dataset. Please download the accompanying RMarkdown file and data to follow along with this tutorial in R.","authors":[{"author":"Elizabeth Houghton","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Kirsten Palmier","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-04-07T00:00:00.000-07:00","citationText":"Houghton & Palmier, 2022"}
+{"title":"Sexual Dimorphism and Sexual Selection in Tree Swallows","description":"This is a tutorial to get you familiar with R and explore ecological concepts through a Tree Swallow nest productivity dataset. Please download the accompanying RMarkdown file and data to follow along with this tutorial in R.","authors":[{"author":"Elizabeth Houghton","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Kirsten Palmier","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-04-07T00:00:00.000-06:00","citationText":"Houghton & Palmier, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2463,7 +2458,7 @@ Tutorials
 </button>
 <div class="nav-dropdown-content">
 <a href="../../lessons/2022-04-07-codyn-tutorial/index.html">Codyn</a>
-<a href="../../lessons/2022-04-07-chronic-wasting-disease-tutorial/index.html">Chronic Wasting Disease</a>
+<a href="../../lessons/2022-06-03-chronic-wasting-disease/index.html">Chronic Wasting Disease</a>
 <a href="../../lessons/2022-04-07-anticosti-historical-data-tutorial/index.html">Anticosti Historical Data</a>
 <a href="../../lessons/2022-04-07-alberta-trees-tutorial/index.html">Alberta Trees</a>
 <a href="../../lessons/2022-04-07-tree-swallow-dataset/index.html">Tree Swallow Dataset</a>

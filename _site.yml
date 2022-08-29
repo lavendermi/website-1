@@ -13,7 +13,7 @@ navbar:
         - text: "Codyn"
           href: lessons/2022-04-07-codyn-tutorial/index.html
         - text: "Chronic Wasting Disease"
-          href: lessons/2022-04-07-chronic-wasting-disease-tutorial/index.html
+          href: lessons/2022-06-03-chronic-wasting-disease/index.html
         - text: "Anticosti Historical Data"
           href: lessons/2022-04-07-anticosti-historical-data-tutorial/index.html
         - text: "Alberta Trees"
